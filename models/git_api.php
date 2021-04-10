@@ -6,7 +6,7 @@ class Git_api
 
     public function __construct()
     {
-        $this->key = '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';
+        $this->key = '';
     }
 
     public function _api( $url )
