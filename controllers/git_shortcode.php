@@ -2,16 +2,16 @@
 
 class Git_shortcode
 {
+    private $cache;
     private $files;
     private $repo;
-    private $show;
     private $user;
 
-    public function __construct( $user = '', $repo = '', $files = 'hidden' )
+    public function __construct( $user = '', $repo = '', $files = 'hidden', $cache = 1 )
     {
+        $this->cache = $cache;
         $this->files = $files;
         $this->repo = $repo;
-        $this->show = $show;
         $this->user = $user;
     }
 
@@ -49,7 +49,7 @@ class Git_shortcode
 
         $return = $v->shortcode();
 
-        set_transient($cache_key, $return, 600);
+        set_transient($cache_key, $return, $this->cache);
 
         return $return;
     }

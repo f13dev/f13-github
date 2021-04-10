@@ -2,10 +2,12 @@
 
 class Gist_shortcode
 {
+    private $cache;
     private $id;
 
-    public function __construct( $id = null )
+    public function __construct( $id = null, $cache = 1 )
     {
+        $this->cache = $cache;
         $this->id = $id;
     }
 
@@ -32,7 +34,7 @@ class Gist_shortcode
 
         $return = $v->shortcode();
 
-        set_transient($cache_key, $return, 600);
+        set_transient($cache_key, $return, $this->cache);
 
         return $return;
     }

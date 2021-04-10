@@ -6,7 +6,7 @@ class Git_api
 
     public function __construct()
     {
-        $this->key = '';
+        $this->key = get_option('api_key','f13-github-group' );
     }
 
     public function _api( $url )
