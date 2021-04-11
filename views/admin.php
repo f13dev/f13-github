@@ -16,6 +16,7 @@ class Admin
     public $label_github_api_token;
     public $label_instructions;
     public $label_obtain_key;
+    public $label_plugins_by_f13;
     public $label_save_changes;
     public $label_widget_user;
 
@@ -39,6 +40,7 @@ class Admin
         $this->label_github_api_token = __('GitHub API Token', 'f13-github');
         $this->label_instructions = __('Instructions', 'f13-github');
         $this->label_obtain_key = __('To obtain a GitHub API token', 'f13-github');
+        $this->label_plugins_by_f13 = __('Plugins by F13', 'f13-github');
         $this->label_save_changes    = __('Save Changes', 'f13-github');
         $this->label_widget_user    = __('Username for profile widget', 'f13-github');
     }
@@ -46,7 +48,7 @@ class Admin
     public function f13_settings()
     {
         $v = '<div class="wrap">';
-            $v .= '<h1>F13 Settings</h1>';
+            $v .= '<h1>'.$this->label_plugins_by_f13.'</h1>';
             $v .= '<div id="f13-plugins">'.file_get_contents('https://f13dev.com/f13-plugins/').'</div>';
             //$v .= '<div id="f13-plugins">'.file_get_contents('https://f13.dev/wp-admin/admin-ajax.php?action=f13_plugins').'</div>';
             $v .= '<a href="'.admin_url('plugin-install.php').'?s=f13dev&tab=search&type=author">'.$this->label_all_wordpress_plugins.'</a>';

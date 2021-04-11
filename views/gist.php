@@ -65,6 +65,8 @@ class Gist
             }
             $v .= '<hr />';
             $v .= $this->label_comments.': <a href="https://gist.github.com/' . $this->data['owner']['login'] . '/' . $this->data['id'] . '#comments">' . $this->data['comments'] . '</a><br>';
+        $v .= '</div>';
+        $v .= '<div class="f13-github-shortcode-foot">';
             $v .= '<a href="https://gist.github.com/' . $this->data['owner']['login'] . '/' . $this->data['id'] . '">'.$this->label_view_on_github.'</a>';
         $v .= '</div>';
 

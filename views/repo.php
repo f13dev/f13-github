@@ -80,8 +80,8 @@ class Repo
                     }
                 }
         $v .= '</div>';
-        $v .= '<div style="background-color: #222; color: #33cc33; font-size: 15px; background: linear-gradient(to bottom, rgba(69,72,77,1) 0%,rgba(0,0,0,1) 100%); font-family: Lucida Console,Lucida Sans Typewriter,monaco,Bitstream Vera Sans Mono,monospace; padding: 10px 15px; border-radius: 0 0 10px 10px;">';
-            $v .= 'git clone https://github.com/'.$this->user.'/'.$this->repo;
+        $v .= '<div class="f13-github-shortcode-foot">';
+            $v .= 'git clone <a href="https://github.com/'.$this->user.'/'.$this->repo.'">https://github.com/'.$this->user.'/'.$this->repo.'</a>';
         $v .= '</div>';
 
         return $v;
