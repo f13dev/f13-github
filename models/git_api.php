@@ -56,11 +56,9 @@ class Git_api
         $data = $this->_api( $start );
         foreach ($data as $each) {
             if ($each['type'] == 'dir') {
-                //$files[$each['path']] = $this->get_recursive_repository_files( $each['url'] );
                 $sub = $this->get_recursive_repository_files( $each['url'] );
                 $files = array_merge($files, $sub);
             } else if ($each['type'] == 'file') {
-                //$files[$each['path']] = $each['download_url'];
                 $files[$each['path']] = $each;
             }
         }

@@ -11,10 +11,6 @@ Text Domain: f13
 
 namespace F13\Github;
 
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
-
 if (!isset($wpdb)) global $wpdb;
 if (!function_exists('get_plugins')) require_once(ABSPATH.'wp-admin/includes/plugin.php');
 if (!defined('F13_GITHUB')) define('F13_GITHUB', get_plugin_data(__FILE__, false, false)['Version']);
