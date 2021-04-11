@@ -17,6 +17,7 @@ class Admin
     public $label_instructions;
     public $label_obtain_key;
     public $label_save_changes;
+    public $label_widget_user;
 
     public function __construct( $params = array() )
     {
@@ -39,6 +40,7 @@ class Admin
         $this->label_instructions = __('Instructions', 'f13-github');
         $this->label_obtain_key = __('To obtain a GitHub API token', 'f13-github');
         $this->label_save_changes    = __('Save Changes', 'f13-github');
+        $this->label_widget_user    = __('Username for profile widget', 'f13-github');
     }
 
     public function f13_settings()
@@ -46,6 +48,7 @@ class Admin
         $v = '<div class="wrap">';
             $v .= '<h1>F13 Settings</h1>';
             $v .= '<div id="f13-plugins">'.file_get_contents('https://f13dev.com/f13-plugins/').'</div>';
+            //$v .= '<div id="f13-plugins">'.file_get_contents('https://f13.dev/wp-admin/admin-ajax.php?action=f13_plugins').'</div>';
             $v .= '<a href="'.admin_url('plugin-install.php').'?s=f13dev&tab=search&type=author">'.$this->label_all_wordpress_plugins.'</a>';
         $v .= '</div>';
 
@@ -87,6 +90,12 @@ class Admin
                     $v .= '<th scope="row">'.$this->label_cache_timeout.':</th>';
                     $v .= '<td>';
                         $v .= '<input type="number" name="cache_timeout" value="'.esc_attr( get_option( 'cache_timeout' ) ).'" style="width: 75px;"/>';
+                    $v .= '</td>';
+                $v .= '</tr>';
+                $v .= '<tr valign="top">';
+                    $v .= '<th scope="row">'.$this->label_widget_user.':</th>';
+                    $v .= '<td>';
+                        $v .= '<input type="text" name="widget_user" value="'.esc_attr( get_option( 'widget_user' ) ).'" style="width: 50%;"/>';
                     $v .= '</td>';
                 $v .= '</tr>';
             $v .= '</table>';

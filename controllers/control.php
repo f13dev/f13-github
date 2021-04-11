@@ -8,7 +8,8 @@ class Control
     {
         add_shortcode('gist', array($this, 'gist_shortcode'));
         add_shortcode('github', array($this, 'git_shortcode'));
-        //add_action('widgets_init', array($this, 'github_profile_widget'));
+        add_action('widgets_init', array($this, 'github_profile_widget'));
+
 
         $this->cache_timeout = get_option('cache_timeout','f13-github-group' );
     }
@@ -23,6 +24,8 @@ class Control
         }
 
         $timeout = $timeout * 60;
+
+        return 1; // Temporary for testing
 
         return $timeout;
     }
@@ -46,6 +49,6 @@ class Control
     public function github_profile_widget()
     {
         $c = new Profile_widget();
-        return $c->widget();
+        register_widget($c);
     }
 }

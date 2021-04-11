@@ -43,7 +43,6 @@ class Git_shortcode
             'data' => $data,
             'show_files' =>$this->files,
             'repo' => $this->repo,
-            'show' => $this->show,
             'user' => $this->user,
         ));
 

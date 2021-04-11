@@ -3,10 +3,12 @@
 class Git_api
 {
     private $key;
+    private $widget_user;
 
     public function __construct()
     {
         $this->key = get_option('api_key','f13-github-group' );
+        $this->widget_user = get_option('widget_user','f13-github-group' );
     }
 
     public function _api( $url )
@@ -69,6 +71,16 @@ class Git_api
     {
         $data = $this->get_recursive_repository_files( 'https://api.github.com/repos/'.$user.'/'.$repo.'/contents/' );
         return $data;
-        return $this->_api( 'https://api.github.com/repos/'.$user.'/'.$repo.'/contents/' );
     }
+
+    public function get_user( )
+    {
+        return $this->_api( 'https://api.github.com/users/' . $this->widget_user );
+    }
+
+    public function get_starred_count( )
+    {
+        return count($this->_api( 'https://api.github.com/users/' . $this->widget_user . '/starred' ));
+    }
+
 }

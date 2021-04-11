@@ -42,5 +42,6 @@ class Admin
     {
         register_setting( 'f13-github-group', 'api_key');
         register_setting( 'f13-github-group', 'cache_timeout');
+        register_setting( 'f13-github-group', 'widget_user');
     }
 }
