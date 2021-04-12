@@ -40,8 +40,8 @@ class Admin
 
     public function register_settings()
     {
-        register_setting( 'f13-github-group', 'api_key');
-        register_setting( 'f13-github-group', 'cache_timeout');
-        register_setting( 'f13-github-group', 'widget_user');
+        register_setting( 'f13-github-group', 'f13_github_api_key');
+        register_setting( 'f13-github-group', 'f13_github_cache_timeout');
+        register_setting( 'f13-github-group', 'f13_github_widget_user');
     }
 }

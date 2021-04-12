@@ -25,7 +25,7 @@ class Gist_shortcode
 
         if (array_key_exists('message', $data))
         {
-            return '<div class="f13-error">The gist could not be found</div>';
+            return '<div class="f13-error">'.$data['message'].'</div>';
         }
 
         $v = new \F13\Github\Views\Gist(array(

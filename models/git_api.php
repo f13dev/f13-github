@@ -7,8 +7,8 @@ class Git_api
 
     public function __construct()
     {
-        $this->key = get_option('api_key','f13-github-group' );
-        $this->widget_user = get_option('widget_user','f13-github-group' );
+        $this->key = get_option('f13_github_api_key','f13-github-group' );
+        $this->widget_user = get_option('f13_github_widget_user','f13-github-group' );
     }
 
     public function _api( $url )

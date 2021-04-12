@@ -10,7 +10,7 @@ class Control
         add_shortcode('github', array($this, 'git_shortcode'));
         add_action('widgets_init', array($this, 'github_profile_widget'));
 
-        $this->cache_timeout = get_option('cache_timeout','f13-github-group' );
+        $this->cache_timeout = get_option('f13_twitter_cache_timeout','f13-github-group' );
     }
 
     public function _check_cache( $timeout )
@@ -29,7 +29,7 @@ class Control
 
     public function gist_shortcode($atts)
     {
-        extract(shortcode_atts(array( 'id' => 'false', 'cache' => ''), $atts));
+        extract(shortcode_atts(array( 'id' => 'false', 'cache' => '' ), $atts));
         $cache = $this->_check_cache( $cache );
         $c = new Gist_shortcode( $id, $cache );
         return $c->shortcode();

@@ -29,7 +29,7 @@ class Git_shortcode
 
         if (array_key_exists('message', $data))
         {
-            return '<div class="f13-error">The github repository could not be found</div>';
+            return '<div class="f13-error">'.$data['message'].'</div>';
         }
 
         $files = false;
