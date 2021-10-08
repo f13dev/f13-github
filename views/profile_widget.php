@@ -44,7 +44,7 @@ class Profile_widget
                             $v .= $this->label_github;
                         $v .= '</div>';
                         $v .= '<div class="f13-github-profile-profile-picture">';
-                            $v .= '<img src="' . $this->data['avatar_url'] . '"  />';
+                            $v .= '<img alt="@'.$this->data['login'].' - GitHub avatar" src="' . $this->data['avatar_url'] . '"  />';
                         $v .= '</div>';
                         $v .= '<div class="f13-github-profile-names">';
                             $v .= '<div class="f13-github-profile-name">'.$this->data['name'].'</div>';

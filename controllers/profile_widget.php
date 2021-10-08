@@ -12,6 +12,8 @@ class Profile_widget extends \WP_Widget
         $this->cache = $cache;
         $this->textdomain = strtolower(get_class($this));
 
+        $this->add_field('title', 'Enter title', '', 'text');
+
         parent::__construct($this->textdomain, __('GitHub Profile Widget', 'f13-github'), array( 'description' => __('Some description', 'f13-github'), 'classname' => 'f13-github'));
     }
 
@@ -45,8 +47,49 @@ class Profile_widget extends \WP_Widget
 
     public function form( $instance )
     {
-        $v = '<h4>GitHub profile widget settings</h4>';
-        $v .= '<p>The settings for this widget can be found on the <a href="'.admin_url('admin.php').'?page=f13-settings-github">F13Dev GitHub settings page</a>.</p>';
+        $v = '<p>Set your GitHub API tokens in the <a href="'.admin_url('admin.php').'?page=f13-settings-github">F13 Admin menu</a></p>';
+        foreach($this->fields as $field_name => $field_data)
+        {
+            if($field_data['type'] === 'text')
+            {
+                $v .= '<p>';
+                    $v .= '<label for="'.$this->get_field_id($field_name).'">'._e($field_data['description'], $this->textdomain ).'</label>';
+                    $v .= '<input class="widefat" id="'.$this->get_field_id($field_name).'" name="'.$this->get_field_name($field_name).'" type="text" value="'.esc_attr(isset($instance[$field_name]) ? $instance[$field_name] : $field_data['default_value']).'" />';
+                $v .= '</p>';
+            }
+            elseif($field_data['type'] === 'number')
+            {
+                $v .= '<p>';
+                    $v .= '<label for="'.$this->get_field_id($field_name).'">'._e($field_data['description'], $this->textdomain ).'></label>';
+                    $v .= '<input class="widefat" id="'.$this->get_field_id($field_name).'" name="'.$this->get_field_name($field_name).'" type="number" value="'.esc_attr(isset($instance[$field_name]) ? $instance[$field_name] : $field_data['default_value']).'" />';
+                $v .= '</p>';
+            }
+            elseif($field_data['type'] === 'password')
+            {
+                $v .= '<p>';
+                    $v .= '<label for="'.$this->get_field_id($field_name).'">'._e($field_data['description'], $this->textdomain ).'</label>';
+                    $v .= '<input class="widefat" id="'.$this->get_field_id($field_name).'" name="'.$this->get_field_name($field_name).'" type="password" value="'.esc_attr(isset($instance[$field_name]) ? $instance[$field_name] : $field_data['default_value']).'" />';
+                $v .= '</p>';
+            }
+            elseif($field_data['type'] === 'checkbox')
+            {
+                $v .= '<p>';
+                    $v .= '<label for="'.$this->get_field_id($field_name).'">'._e($field_data['description'], $this->textdomain ).'</label><br />';
+                    $v .= '<input id="'.$this->get_field_id($field_name).'" name="'.$this->get_field_name($field_name).'" type="checkbox"';
+                    if (esc_attr($instance[$field_name]) == true)
+                    {
+                        $v .= ' checked';
+                    }
+                    $v .= '/>';
+                $v .= '</p>';
+            }
+            /* Otherwise show an error */
+            else
+            {
+                $v .= __('Error - Field type not supported', $this->textdomain) . ': ' . $field_data['type'];
+            }
+        }
+
         echo $v;
     }
 
@@ -55,4 +98,11 @@ class Profile_widget extends \WP_Widget
         return $new_instance;
     }
 
+    private function add_field($field_name, $field_description = '', $field_default_value = '', $field_type = 'text')
+    {
+        if(!is_array($this->fields))
+            $this->fields = array();
+
+        $this->fields[$field_name] = array('name' => $field_name, 'description' => $field_description, 'default_value' => $field_default_value, 'type' => $field_type);
+    }
 }

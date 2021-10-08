@@ -27,13 +27,11 @@
 .f13-github-profile-info { padding: 0.323em 4%; border-bottom: 1px solid #d8d8d8; }
 .f13-github-profile-info > span { display: inline-block; min-width: 40%; padding-right: 5px; }
 .f13-github-profile-info > span > svg { margin-right: 5px; }
-.f13-github-profile-info a { color: #4088c0; text-decoration: none; }
-.f13-github-profile-info a:hover { color: #d8d8d8; text-decoration: underline; }
+.f13-github-profile-info a { text-decoration: none; }
 .f13-github-profile-repos { padding: 0.323em 4%; }
 .f13-github-profile-repos > span { display: block; }
-.f13-github-profile-repos a { color: #4088c0; text-decoration: none; }
-.f13-github-profile-repos a:hover { color: #d8d8d8; text-decoration: underline; }
+.f13-github-profile-repos a { text-decoration: none; }
 .f13-github-profile-numbers { padding: 0.323em 4%; border-bottom: 1px solid #d8d8d8; }
-.f13-github-profile-numbers > a > span { display: inline-block; width: 31.65%; text-align: center; border-bottom: 6px solid #4078c0; color: #b8b8b8; }
+.f13-github-profile-numbers > a > span { display: inline-block; width: 31.65%; text-align: center; border-bottom: 6px solid #4078c0; }
 .f13-github-profile-numbers > a:hover > span { border-bottom-color: #d8d8d8; }
-.f13-github-profile-numbers > a > span > span { color: #4088c0; font-weight: bolder; font-size: 2em; }
+.f13-github-profile-numbers > a > span > span { font-weight: bolder; font-size: 2em; }
