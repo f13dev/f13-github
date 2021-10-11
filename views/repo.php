@@ -81,7 +81,8 @@ class Repo
                 }
         $v .= '</div>';
         $v .= '<div class="f13-github-shortcode-foot">';
-            $v .= 'git clone <a href="https://github.com/'.$this->user.'/'.$this->repo.'">https://github.com/'.$this->user.'/'.$this->repo.'</a>';
+            //$v .= 'git clone <a href="https://github.com/'.$this->user.'/'.$this->repo.'">https://github.com/'.$this->user.'/'.$this->repo.'</a>';
+            $v .= 'git clone https://github.com/'.$this->user.'/'.$this->repo;
         $v .= '</div>';
 
         return $v;

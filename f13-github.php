@@ -56,7 +56,7 @@ class Plugin
 
     public function style_and_scripts()
     {
-        wp_enqueue_script('google-prettify', 'https://www.doyler.net/code-prettify/loader/run_prettify.js?lang=css&skin=sons-of-obsidian', array(), false, true);
+        wp_enqueue_script('google-prettify', 'https://www.doyler.net/code-prettify/loader/run_prettify.js?lang=css&skin=sunburst', array(), false, true);
 
         $styles_ver  = date("ymd-Gis", filemtime( plugin_dir_path( __FILE__ ) . 'css/styles.css' ));
         wp_enqueue_style('f13_github_styles', F13_GITHUB_URL.'css/styles.css', array(), $styles_ver);
