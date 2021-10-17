@@ -19,11 +19,11 @@ class Profile_widget extends \WP_Widget
 
     public function widget($args, $instance)
     {
-
-        $cache_key = 'f13_github_profile_'.serialize($instance);
+        $cache_key = 'f13_github_profile_'.sha1(serialize($instance));
 
         $cache = get_transient( $cache_key );
         if ( $cache ) {
+            echo '<script>console.log("Building github widget from transient: '.$cache_key.'");</script>';
             echo $cache;
             return;
         }
@@ -41,7 +41,10 @@ class Profile_widget extends \WP_Widget
         ));
 
         $return = $v->widget();
+
         set_transient($cache_key, $return, $this->cache);
+        echo '<script>console.log("Building github widget from API, setting transient: '.$cache_key.'");</script>';
+
         echo $return;
     }
 

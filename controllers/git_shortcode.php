@@ -17,10 +17,11 @@ class Git_shortcode
 
     public function shortcode()
     {
-        $cache_key = 'f13_github_repo'.md5(serialize( $this->user.$this->repo.$this->files ));
+        $cache_key = 'f13_github_repo'.sha1(serialize( $this->user.$this->repo.$this->files ));
 
         $cache = get_transient( $cache_key );
         if ( $cache ) {
+            echo '<script>console.log("Building git shortcode from transient: '.$cache_key.'");</script>';
             return $cache;
         }
 
@@ -49,6 +50,7 @@ class Git_shortcode
         $return = $v->shortcode();
 
         set_transient($cache_key, $return, $this->cache);
+        echo '<script>console.log("Building git shortcode from API, setting transient: '.$cache_key.'");</script>';
 
         return $return;
     }

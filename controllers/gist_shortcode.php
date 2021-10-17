@@ -17,6 +17,7 @@ class Gist_shortcode
 
         $cache = get_transient( $cache_key );
         if ( $cache ) {
+            echo '<script>console.log("Building gist shortcode from transient: '.$cache_key.'");</script>';
             return $cache;
         }
 
@@ -35,6 +36,7 @@ class Gist_shortcode
         $return = $v->shortcode();
 
         set_transient($cache_key, $return, $this->cache);
+        echo '<script>console.log("Building gist shrotcode from API, setting transient: '.$cache_key.'");</script>';
 
         return $return;
     }

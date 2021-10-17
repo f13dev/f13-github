@@ -105,8 +105,8 @@ class Admin
         $v .= '</form>';
 
         $v .= '<h2>'.$this->label_instructions.'</h2>';
-            $v .= __('<b>Repository shortcode</b>: [github user=gituser repo=reponame files=none|names|full|compact cache=time_in_minutes]', 'f13-github').'<br>';
-            $v .= __('<b>Gist</b>: [gist id=gist_id cache=time_in_minutes]', 'f13-github');
+            $v .= __('<b>Repository shortcode</b>: <blockquote>[github user=gituser repo=reponame files=none|names|full|compact cache=time_in_minutes]</blockquote>', 'f13-github').'<br>';
+            $v .= __('<b>Gist</b>: <blockquote>[gist id=gist_id cache=time_in_minutes]</blockquote>', 'f13-github');
             $v .= '<ul>';
                 $v .= '<li><h3>Files</h3>';
                     $v .= '<ul>';
